@@ -3,25 +3,25 @@
     {
       "id": "hero-groceries",
       "description": "A vibrant assortment of fresh groceries in a shopping bag.",
-      "imageUrl": "https://images.unsplash.com/photo-1602918955248-d1bbfcbfae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmbGFzaHxlbnwwfHx8fDE3NjEzMTA1MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "flash speed"
+      "imageUrl": "https://images.unsplash.com/photo-1553531889-56cc480ac5cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxncm9jZXJpZXMlMjBzaG9wcGluZ3xlbnwwfHx8fDE3NjEzMTA3MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "groceries shopping"
     },
     {
       "id": "feature-order-ahead",
       "description": "An abstract illustration representing ordering from a phone.",
-      "imageUrl": "https://images.unsplash.com/photo-1605902711834-8b11c3e3ef2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBzaG9wcGluZ3xlbnwwfHx8fDE3NjEzMDkxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1571867424488-4565932edb41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb2JpbGUlMjBzaG9wcGluZ3xlbnwwfHx8fDE3NjEzMDkxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "mobile shopping"
     },
     {
       "id": "feature-live-status",
       "description": "An illustration showing a store with an open sign and a clock.",
-      "imageUrl": "https://images.unsplash.com/photo-1594696893695-f28a85cc6881?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3RvcmUlMjBvcGVufGVufDB8fHx8MTc2MTMwOTExM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1661157419918-c2f59208c018?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdG9yZSUyMG9wZW58ZW58MHx8fHwxNzYxMzA5MTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "store open"
     },
     {
       "id": "feature-flexible-pickup",
       "description": "An illustration of a person picking up a grocery bag.",
-      "imageUrl": "https://images.unsplash.com/photo-1726443221449-5e3727606f7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxncm9jZXJ5JTIwcGlja3VwfGVufDB8fHx8MTc2MTMwOTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1723855992942-d73225a8622e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxncm9jZXJ5JTIwcGlja3VwfGVufDB8fHx8MTc2MTMwOTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "grocery pickup"
     }
   ]
