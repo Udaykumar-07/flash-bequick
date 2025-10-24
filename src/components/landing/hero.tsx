@@ -5,7 +5,7 @@ import { Download } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Hero() {
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-phone-mockup');
+  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-groceries');
 
   return (
     <section className="relative w-full min-h-dvh flex items-center justify-center pt-24 md:pt-20">
@@ -33,13 +33,12 @@ export default function Hero() {
           </div>
           <div className="flex justify-center animate-in fade-in zoom-in-95 duration-700 delay-200">
             {heroImage && (
-              <div className="relative w-[280px] h-[560px] md:w-[320px] md:h-[640px] transform-gpu transition-transform hover:scale-105 duration-300">
+              <div className="relative w-full max-w-lg aspect-[4/3] transform-gpu transition-transform hover:scale-105 duration-300">
                 <div className="absolute -inset-4 bg-gradient-to-br from-primary to-accent rounded-3xl opacity-20 blur-2xl"></div>
                 <Image
                   src={heroImage.imageUrl}
                   alt={heroImage.description}
-                  width={350}
-                  height={700}
+                  fill
                   data-ai-hint={heroImage.imageHint}
                   className="rounded-3xl object-cover shadow-2xl shadow-primary/20 border-4 border-white/10"
                   priority
