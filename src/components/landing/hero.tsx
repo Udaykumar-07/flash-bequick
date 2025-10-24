@@ -20,7 +20,7 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 transition-transform hover:scale-105" id="download">
-                <a href="/download/version1.apk" download>
+                <a href="/download/Flash:BeQuick.apk" download>
                   <Download className="mr-2 h-5 w-5" />
                   Download Now
                 </a>

@@ -1,7 +1,14 @@
+"use client";
+
 import FlashLogo from '@/components/icons/logo';
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="w-full border-t border-border/50 bg-secondary/30">
