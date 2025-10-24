@@ -15,7 +15,7 @@ export default function SplashScreen() {
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-black">
-      <h1 className="font-headline text-6xl font-bold tracking-tighter text-white">Flash</h1>
+      <h1 className="font-headline text-6xl font-bold tracking-tighter text-white">Flash: Be Quick</h1>
     </div>
   );
 }
