@@ -20,7 +20,7 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 transition-transform hover:scale-105" id="download">
-                <a href="#">
+                <a href="download/version1.apk">
                   <Download className="mr-2 h-5 w-5" />
                   Download Now
                 </a>
@@ -33,7 +33,7 @@ export default function Hero() {
           </div>
           <div className="flex justify-center animate-in fade-in zoom-in-95 duration-700 delay-200">
             {heroImage && (
-              <div className="relative w-full max-w-lg aspect-[4/3] transform-gpu transition-transform hover:scale-105 duration-300">
+              <div className="relative w-full max-w-md lg:max-w-lg aspect-[4/3] transform-gpu transition-transform hover:scale-105 duration-300">
                 <div className="absolute -inset-4 bg-gradient-to-br from-primary to-accent rounded-3xl opacity-20 blur-2xl"></div>
                 <Image
                   src={heroImage.imageUrl}

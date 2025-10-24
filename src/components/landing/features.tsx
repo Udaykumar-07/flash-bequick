@@ -40,7 +40,7 @@ export default function Features() {
           <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter">
             Everything you need, <span className="text-primary">nothing you don't.</span>
           </h2>
-          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-body">
+          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed font-body">
             Flash is designed to be simple, fast, and free. We get you in and out of the store in a flash, saving you time for what really matters.
           </p>
         </div>
