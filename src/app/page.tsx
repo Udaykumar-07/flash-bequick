@@ -17,10 +17,10 @@ export default function SplashScreen() {
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-black">
       <Image
-        src="/splash.png"
+        src="/logo.png"
         alt="Flash Logo"
         width={200}
-        height={400}
+        height={200}
         priority
       />
     </div>
