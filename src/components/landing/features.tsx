@@ -47,11 +47,11 @@ export default function Features() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
             <Card key={index} className="bg-card border-border hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-in fade-in slide-in-from-bottom-12" style={{animationDelay: `${index * 100}ms`}}>
-              <CardHeader className="flex flex-col items-start gap-4 p-6">
+              <CardHeader className="flex flex-row items-start gap-4 p-6">
                  <div className="bg-primary/10 p-3 rounded-full">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="font-headline text-xl">{feature.title}</CardTitle>
+                <CardTitle className="font-headline text-xl leading-snug">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent className="font-body text-muted-foreground p-6 pt-0">
                 {feature.description}
