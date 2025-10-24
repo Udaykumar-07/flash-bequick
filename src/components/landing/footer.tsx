@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container flex flex-col md:flex-row items-center justify-between gap-4 px-4 py-8 md:px-6">
         <FlashLogo />
         <p className="text-sm text-muted-foreground font-body" suppressHydrationWarning>
-          &copy; {currentYear} Flash Inc. All rights reserved.
+          &copy; {currentYear} Flash: Be Quick Inc. All rights reserved.
         </p>
       </div>
     </footer>

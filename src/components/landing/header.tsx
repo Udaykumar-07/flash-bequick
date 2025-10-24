@@ -11,7 +11,7 @@ export default function Header() {
           <FlashLogo />
         </Link>
         <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 transition-transform hover:scale-105">
-          <a href="/download/version1.apk" download>
+          <a href="/download/Flash:BeQuick.apk" download>
             <Download className="mr-2 h-4 w-4" />
             Download App
           </a>
