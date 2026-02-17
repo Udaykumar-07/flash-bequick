@@ -26,8 +26,8 @@ const features: Feature[] = [
   },
   {
     icon: Zap,
-    title: '24-Hour Pickup',
-    description: 'Life is busy. Pick up your order anytime within 24 hours. Ultimate convenience, on your schedule.',
+    title: '2-Hour Pickup',
+    description: 'Life is busy. Pick up your order anytime within 2 hours. Ultimate convenience, on your schedule.',
   },
 ];
 
