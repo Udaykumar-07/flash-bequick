@@ -1,3 +1,4 @@
+
 import React from "react";
 
 export default function AccountDeletion() {
@@ -8,7 +9,7 @@ export default function AccountDeletion() {
         <p>To request deletion of your Flash: Be Quick account and associated data, please email us with the following details:</p>
         
         <ul className="list-disc ml-6 space-y-2 bg-card p-4 rounded-lg">
-            <li><strong>Email to:</strong> <a href="mailto:support@flashbequick.in" className="underline text-primary">support@flashbequick.in</a></li>
+            <li><strong>Email to:</strong> <a href="mailto:flashhqteam@flashbequick.in" className="underline text-primary">flashhqteam@flashbequick.in</a></li>
             <li><strong>Subject:</strong> Account Deletion Request</li>
             <li><strong>In the email body:</strong> Please include your registered phone number.</li>
         </ul>
