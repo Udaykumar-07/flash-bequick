@@ -19,6 +19,12 @@ export default function Footer() {
           >
             Privacy Policy
           </a>
+          <a
+            href="/account-deletion"
+            className="text-sm text-primary underline hover:text-primary/80 font-body"
+          >
+            Account Deletion
+          </a>
         </div>
       </div>
     </footer>
