@@ -15,7 +15,7 @@ export default function Cta() {
         </div>
         <div className="mx-auto w-full max-w-sm space-y-2">
             <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 transition-transform hover:scale-105 w-full">
-                <a href="/download/Flash:BeQuick.apk" download>
+                <a href="https://play.google.com/store/apps/details?id=com.udaykumar07.flash" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-5 w-5" />
                   Get the App for Free
                 </a>
