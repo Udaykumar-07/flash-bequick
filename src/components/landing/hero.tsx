@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Download } from 'lucide-react';
+import { Download, Globe } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Hero() {
@@ -19,10 +19,16 @@ export default function Hero() {
               Skip the line, not your groceries. Order ahead from local stores and pick up when it suits you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/30 transition-transform hover:scale-105" id="browse-web">
+                <Link href="/browse">
+                  <Globe className="mr-2 h-5 w-5" />
+                  Browse in Browser
+                </Link>
+              </Button>
               <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 transition-transform hover:scale-105" id="download">
                 <a href="https://play.google.com/store/apps/details?id=com.udaykumar07.flash" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-5 w-5" />
-                  Download Now
+                  Download App
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>

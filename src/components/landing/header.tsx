@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import FlashLogo from '@/components/icons/logo';
 import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
+import { Download, ShoppingBag } from 'lucide-react';
 
 export default function Header() {
   return (
@@ -10,12 +10,20 @@ export default function Header() {
         <Link href="/" aria-label="Flash homepage">
           <FlashLogo />
         </Link>
-        <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 transition-transform hover:scale-105">
-          <a href="https://play.google.com/store/apps/details?id=com.udaykumar07.flash" target="_blank" rel="noopener noreferrer">
-            <Download className="mr-2 h-4 w-4" />
-            Download App
-          </a>
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 transition-transform hover:scale-105">
+            <Link href="/browse">
+              <ShoppingBag className="mr-2 h-4 w-4" />
+              Browse Now
+            </Link>
+          </Button>
+          <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 transition-transform hover:scale-105">
+            <a href="https://play.google.com/store/apps/details?id=com.udaykumar07.flash" target="_blank" rel="noopener noreferrer">
+              <Download className="mr-2 h-4 w-4" />
+              Download App
+            </a>
+          </Button>
+        </div>
       </div>
     </header>
   );

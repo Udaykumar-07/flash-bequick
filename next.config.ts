@@ -30,6 +30,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      // Proxy Expo web app asset paths so the iframe works correctly
+      // The Expo build uses absolute paths like /assets/... and /_expo/...
+      {
+        source: '/_expo/:path*',
+        destination: '/webapp/_expo/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
