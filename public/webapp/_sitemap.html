@@ -370,5 +370,14 @@ input::-webkit-search-cancel-button,input::-webkit-search-decoration,input::-web
 @keyframes r-1pzkwqh{0%{transform:translateY(100%);}100%{transform:translateY(0%);}}
 @keyframes r-imtty0{0%{opacity:0;}100%{opacity:1;}}
 @keyframes r-q67da2{0%{transform:translateX(-100%);}100%{transform:translateX(400%);}}
-@keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}</style><script type="module">globalThis.__EXPO_ROUTER_HYDRATE__=true;</script><link rel="icon" href="/favicon.ico" /></head><body><div id="root"><div class="css-g5y9jx r-13awgt0"></div></div><script>(function(){var p=window.location.pathname;if(p.indexOf('/app-entry')===0||p.indexOf('/webapp')===0){window.history.replaceState(null,'','/');}})();</script><script src="/_expo/static/js/web/entry-aa702ff447025cc9a7ce6cf8be530ac4.js" defer></script>
+@keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}</style><script type="module">globalThis.__EXPO_ROUTER_HYDRATE__=true;</script><link rel="icon" href="/favicon.ico" /></head><body><div id="root"><div class="css-g5y9jx r-13awgt0"></div></div><script>
+// Fix routing when served inside an iframe or at a non-root path.
+// Expo Router reads window.location.pathname to determine the initial route.
+// When loaded from /app-entry/ or /webapp/, the router doesn't recognize the path
+// and shows "+not-found". This script tricks the router into seeing / as the path.
+if (window.location.pathname.startsWith('/app-entry') || window.location.pathname.startsWith('/webapp')) {
+  window.history.replaceState(null, '', '/');
+}
+</script>
+<script src="/_expo/static/js/web/entry-b8f363f8324de39920289335cf9698e3.js" defer></script>
 </body></html>
