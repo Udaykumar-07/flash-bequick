@@ -53,35 +53,35 @@ const nextConfig: NextConfig = {
         destination: '/webapp/assets/:path*',
       },
       // Expo Router in-app navigation routes.
-      // All pre-rendered HTML files load the same SPA bundle, so we can
-      // serve any of them — the routing fix script normalises the path to "/".
+      // Since the app is now exported as a single-page app (SPA),
+      // we route all app paths to index.html.
       {
         source: '/Dashboard',
-        destination: '/webapp/Dashboard.html',
+        destination: '/webapp/index.html',
       },
       {
         source: '/Categories',
-        destination: '/webapp/Categories.html',
+        destination: '/webapp/index.html',
       },
       {
         source: '/Orders',
-        destination: '/webapp/Orders.html',
+        destination: '/webapp/index.html',
       },
       {
         source: '/Bookmarks',
-        destination: '/webapp/Bookmarks.html',
+        destination: '/webapp/index.html',
       },
       {
         source: '/Profile',
-        destination: '/webapp/Profile.html',
+        destination: '/webapp/index.html',
       },
       {
         source: '/Cart',
-        destination: '/webapp/Cart.html',
+        destination: '/webapp/index.html',
       },
       {
         source: '/Checkout',
-        destination: '/webapp/Checkout.html',
+        destination: '/webapp/index.html',
       },
     ];
   },
