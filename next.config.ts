@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -53,35 +53,35 @@ const nextConfig: NextConfig = {
         destination: '/webapp/assets/:path*',
       },
       // Expo Router in-app navigation routes.
-      // Since the app is now exported as a single-page app (SPA),
-      // we route all app paths to index.html.
+      // All pre-rendered HTML files load the same SPA bundle, so we can
+      // serve any of them — the routing fix script normalises the path to "/".
       {
         source: '/Dashboard',
-        destination: '/webapp/index.html',
+        destination: '/webapp/Dashboard.html',
       },
       {
         source: '/Categories',
-        destination: '/webapp/index.html',
+        destination: '/webapp/Categories.html',
       },
       {
         source: '/Orders',
-        destination: '/webapp/index.html',
+        destination: '/webapp/Orders.html',
       },
       {
         source: '/Bookmarks',
-        destination: '/webapp/index.html',
+        destination: '/webapp/Bookmarks.html',
       },
       {
         source: '/Profile',
-        destination: '/webapp/index.html',
+        destination: '/webapp/Profile.html',
       },
       {
         source: '/Cart',
-        destination: '/webapp/index.html',
+        destination: '/webapp/Cart.html',
       },
       {
         source: '/Checkout',
-        destination: '/webapp/index.html',
+        destination: '/webapp/Checkout.html',
       },
     ];
   },
