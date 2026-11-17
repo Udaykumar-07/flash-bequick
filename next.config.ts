@@ -83,6 +83,14 @@ const nextConfig: NextConfig = {
         source: '/Checkout',
         destination: '/webapp/index.html',
       },
+      {
+        source: '/YourKhata',
+        destination: '/webapp/index.html',
+      },
+      {
+        source: '/RestaurantMenu',
+        destination: '/webapp/index.html',
+      },
     ];
   },
 };
