@@ -73,12 +73,12 @@ function MenuContent() {
     return <MenuLoading />;
   }
 
-  // Encode the restaurant info as both query string and hash fragment
-  // so the Expo Router SPA resolves it reliably without interference.
-  const hashParams = new URLSearchParams();
-  hashParams.set("restaurantId", restaurantId);
-  if (restaurantName) hashParams.set("restaurantName", restaurantName);
-  const iframeSrc = `/app-entry/?${hashParams.toString()}#menu?${hashParams.toString()}`;
+  // Directly load /RestaurantMenu in the Expo web app so it immediately renders
+  // the restaurant menu without any intermediate redirects or touching the login screen.
+  const queryParams = new URLSearchParams();
+  queryParams.set("restaurantId", restaurantId);
+  if (restaurantName) queryParams.set("restaurantName", restaurantName);
+  const iframeSrc = `/RestaurantMenu?${queryParams.toString()}#menu?${queryParams.toString()}`;
 
   return (
     <>

@@ -64,16 +64,16 @@ function BrowseContent() {
     return <BrowseLoading />;
   }
 
-  // If a restaurantId is passed in search query (e.g. /browse?restaurantId=vendor-Id-66227),
-  // forward it to the iframe as a deep-link hash and query param.
+  // If a restaurantId is passed in search query (e.g. /browse?restaurantId=10398),
+  // forward it directly to the RestaurantMenu screen.
   const queryRestId = searchParams?.get('restaurantId') || searchParams?.get('shopId');
   const queryRestName = searchParams?.get('restaurantName') || searchParams?.get('name');
   let iframeSrc = '/app-entry/';
   if (queryRestId) {
-    const hashParams = new URLSearchParams();
-    hashParams.set('restaurantId', queryRestId);
-    if (queryRestName) hashParams.set('restaurantName', queryRestName);
-    iframeSrc = `/app-entry/?${hashParams.toString()}#menu?${hashParams.toString()}`;
+    const params = new URLSearchParams();
+    params.set('restaurantId', queryRestId);
+    if (queryRestName) params.set('restaurantName', queryRestName);
+    iframeSrc = `/RestaurantMenu?${params.toString()}#menu?${params.toString()}`;
   }
 
   return (
