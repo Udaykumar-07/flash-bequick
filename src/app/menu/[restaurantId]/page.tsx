@@ -40,8 +40,8 @@ function MenuLoading() {
  * and query parameters so the Expo app can read them on load and navigate
  * to the correct screen.
  *
- * URL format:  flashbequick.in/menu/vendor-Id-66227?name=My+Restaurant
- * QR code should encode that full URL.
+ * URL format:  flashbequick.in/menu/10398?name=My+Restaurant  (clean numeric ID, no "vendor-Id-" prefix)
+ * QR code should encode that clean URL — the app resolves "10398" → "vendor-Id-10398" internally.
  */
 function MenuContent() {
   const params = useParams();

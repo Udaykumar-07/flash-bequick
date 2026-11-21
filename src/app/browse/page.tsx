@@ -42,12 +42,14 @@ function BrowseContent() {
     const handleMessage = (event: MessageEvent) => {
       try {
         if (event.data?.type === 'FLASH_NAVIGATE_MENU' && event.data.restaurantId) {
-          const restId = encodeURIComponent(event.data.restaurantId);
+          const rawId = String(event.data.restaurantId);
+          const cleanRestId = rawId.replace(/^vendor-Id-/i, '');
+          const restId = encodeURIComponent(cleanRestId);
           const nameParam = event.data.restaurantName
             ? `?name=${encodeURIComponent(event.data.restaurantName)}`
             : '';
           const newUrl = `/menu/${restId}${nameParam}`;
-          window.history.pushState({ restaurantId: event.data.restaurantId }, '', newUrl);
+          window.history.pushState({ restaurantId: cleanRestId }, '', newUrl);
         } else if (event.data?.type === 'FLASH_NAVIGATE_BROWSE') {
           window.history.pushState(null, '', '/browse');
         }
