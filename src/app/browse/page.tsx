@@ -1,9 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function BrowsePage() {
+function BrowseLoading() {
+  return (
+    <div
+      style={{
+        width: "100vw",
+        height: "100dvh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#020617",
+      }}
+    >
+      <div
+        style={{
+          width: 36,
+          height: 36,
+          border: "4px solid rgba(59,130,246,0.2)",
+          borderTopColor: "#3b82f6",
+          borderRadius: "50%",
+          animation: "spin 0.75s linear infinite",
+        }}
+      />
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+    </div>
+  );
+}
+
+function BrowseContent() {
   const [isMounted, setIsMounted] = useState(false);
   const searchParams = useSearchParams();
 
@@ -32,30 +59,7 @@ export default function BrowsePage() {
   }, []);
 
   if (!isMounted) {
-    return (
-      <div
-        style={{
-          width: "100vw",
-          height: "100dvh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#020617",
-        }}
-      >
-        <div
-          style={{
-            width: 36,
-            height: 36,
-            border: "4px solid rgba(59,130,246,0.2)",
-            borderTopColor: "#3b82f6",
-            borderRadius: "50%",
-            animation: "spin 0.75s linear infinite",
-          }}
-        />
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-      </div>
-    );
+    return <BrowseLoading />;
   }
 
   // If a restaurantId is passed in search query (e.g. /browse?restaurantId=vendor-Id-66227),
@@ -107,5 +111,13 @@ export default function BrowsePage() {
         />
       </div>
     </>
+  );
+}
+
+export default function BrowsePage() {
+  return (
+    <Suspense fallback={<BrowseLoading />}>
+      <BrowseContent />
+    </Suspense>
   );
 }

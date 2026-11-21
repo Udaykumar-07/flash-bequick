@@ -1,7 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useParams, useSearchParams } from "next/navigation";
+
+function MenuLoading() {
+  return (
+    <div
+      style={{
+        width: "100vw",
+        height: "100dvh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#020617",
+      }}
+    >
+      <div
+        style={{
+          width: 36,
+          height: 36,
+          border: "4px solid rgba(59,130,246,0.2)",
+          borderTopColor: "#3b82f6",
+          borderRadius: "50%",
+          animation: "spin 0.75s linear infinite",
+        }}
+      />
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+    </div>
+  );
+}
 
 /**
  * /menu/[restaurantId]?name=RestaurantName
@@ -10,12 +37,13 @@ import { useParams, useSearchParams } from "next/navigation";
  * directly to the RestaurantMenu screen for the given restaurant.
  *
  * The restaurant ID and name are injected into the iframe via the URL hash
- * so the Expo app can read them on load and navigate to the correct screen.
+ * and query parameters so the Expo app can read them on load and navigate
+ * to the correct screen.
  *
  * URL format:  flashbequick.in/menu/vendor-Id-66227?name=My+Restaurant
  * QR code should encode that full URL.
  */
-export default function RestaurantMenuPage() {
+function MenuContent() {
   const params = useParams();
   const searchParams = useSearchParams();
   const [isMounted, setIsMounted] = useState(false);
@@ -42,35 +70,11 @@ export default function RestaurantMenuPage() {
   }, []);
 
   if (!isMounted) {
-    return (
-      <div
-        style={{
-          width: "100vw",
-          height: "100dvh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#020617",
-        }}
-      >
-        <div
-          style={{
-            width: 36,
-            height: 36,
-            border: "4px solid rgba(59,130,246,0.2)",
-            borderTopColor: "#3b82f6",
-            borderRadius: "50%",
-            animation: "spin 0.75s linear infinite",
-          }}
-        />
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-      </div>
-    );
+    return <MenuLoading />;
   }
 
-  // Encode the restaurant info as a hash fragment so it's never sent to the
-  // server and doesn't interfere with the Expo Router SPA.
-  // Format: #menu?restaurantId=xxx&restaurantName=yyy
+  // Encode the restaurant info as both query string and hash fragment
+  // so the Expo Router SPA resolves it reliably without interference.
   const hashParams = new URLSearchParams();
   hashParams.set("restaurantId", restaurantId);
   if (restaurantName) hashParams.set("restaurantName", restaurantName);
@@ -105,5 +109,13 @@ export default function RestaurantMenuPage() {
         />
       </div>
     </>
+  );
+}
+
+export default function RestaurantMenuPage() {
+  return (
+    <Suspense fallback={<MenuLoading />}>
+      <MenuContent />
+    </Suspense>
   );
 }
