@@ -1,12 +1,34 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function BrowsePage() {
   const [isMounted, setIsMounted] = useState(false);
+  const searchParams = useSearchParams();
 
+  // Listen for navigation messages from the embedded Expo web app iframe
+  // to keep the outer browser URL synchronized.
   useEffect(() => {
     setIsMounted(true);
+
+    const handleMessage = (event: MessageEvent) => {
+      try {
+        if (event.data?.type === 'FLASH_NAVIGATE_MENU' && event.data.restaurantId) {
+          const restId = encodeURIComponent(event.data.restaurantId);
+          const nameParam = event.data.restaurantName
+            ? `?name=${encodeURIComponent(event.data.restaurantName)}`
+            : '';
+          const newUrl = `/menu/${restId}${nameParam}`;
+          window.history.pushState({ restaurantId: event.data.restaurantId }, '', newUrl);
+        } else if (event.data?.type === 'FLASH_NAVIGATE_BROWSE') {
+          window.history.pushState(null, '', '/browse');
+        }
+      } catch (_) {}
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, []);
 
   if (!isMounted) {
@@ -36,6 +58,18 @@ export default function BrowsePage() {
     );
   }
 
+  // If a restaurantId is passed in search query (e.g. /browse?restaurantId=vendor-Id-66227),
+  // forward it to the iframe as a deep-link hash and query param.
+  const queryRestId = searchParams?.get('restaurantId') || searchParams?.get('shopId');
+  const queryRestName = searchParams?.get('restaurantName') || searchParams?.get('name');
+  let iframeSrc = '/app-entry/';
+  if (queryRestId) {
+    const hashParams = new URLSearchParams();
+    hashParams.set('restaurantId', queryRestId);
+    if (queryRestName) hashParams.set('restaurantName', queryRestName);
+    iframeSrc = `/app-entry/?${hashParams.toString()}#menu?${hashParams.toString()}`;
+  }
+
   return (
     <>
       {/* Ensure proper mobile viewport scaling */}
@@ -61,7 +95,7 @@ export default function BrowsePage() {
           at a clean root-like path so Expo Router resolves to "/" correctly.
         */}
         <iframe
-          src="/app-entry/"
+          src={iframeSrc}
           title="Flash: Be Quick — Browse & Order"
           style={{
             width: "100%",
