@@ -48,11 +48,25 @@ function MenuContent() {
   const searchParams = useSearchParams();
   const [isMounted, setIsMounted] = useState(false);
 
-  const restaurantId = Array.isArray(params?.restaurantId)
+  const rawRestId = Array.isArray(params?.restaurantId)
     ? params.restaurantId[0]
     : params?.restaurantId ?? "";
 
-  const restaurantName = searchParams?.get("name") ?? "";
+  // Clean and sanitize restaurantId: strip any query string or encoding artifacts
+  let restaurantId = decodeURIComponent(rawRestId).split("?")[0].split("&")[0].trim();
+
+  // Extract and sanitize restaurant name
+  const rawName = searchParams?.get("name") || searchParams?.get("restaurantName") || "";
+  let restaurantName = decodeURIComponent(rawName).split("?")[0].split("&")[0].trim();
+
+  // If URL was formatted like /menu/Dinakar%20hotel?restaurantId=10398
+  const queryRestId = searchParams?.get("restaurantId") || searchParams?.get("id");
+  if (queryRestId) {
+    if (!restaurantName && isNaN(Number(restaurantId)) && !restaurantId.startsWith("vendor-Id-")) {
+      restaurantName = restaurantId;
+    }
+    restaurantId = queryRestId.split("?")[0].split("&")[0].trim();
+  }
 
   useEffect(() => {
     setIsMounted(true);
